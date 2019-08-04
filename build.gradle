@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'JMS'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+//jar{
+//    baseName = 'jmsProducer'
+//    version = '0.0.1'
+//}
+
+bootJar{
+    baseName = 'jmsProducer'
+    version = '0.0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'com.rabbitmq', name: 'amqp-client', version: '5.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
